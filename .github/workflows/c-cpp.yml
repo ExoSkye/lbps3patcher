@@ -8,7 +8,7 @@ on:
 
 env:
   PS3DEV: /usr/local/ps3dev
-  PSL1GHT: ${{ env.PS3DEV }}
+  PSL1GHT: /usr/local/ps3dev
 
 jobs:
   build:
