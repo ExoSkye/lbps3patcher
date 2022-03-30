@@ -33,7 +33,7 @@ jobs:
       uses: actions/cache@v3.0.1
       with:
         path: ${{ env.PS3DEV }}
-        key: psl1ght-${{ hashFiles('ps3toolchain/**') }}
+        key: psl1ght-1
 
     - name: Setup PSL1GHT
       if: steps.cache-psl1ght.outputs.cache-hit != 'true'
