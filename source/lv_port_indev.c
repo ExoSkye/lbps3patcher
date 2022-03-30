@@ -4,6 +4,7 @@
 #include "lvgl.h"
 #include <io/pad.h>
 #include <io/kb.h>
+#include <SDL.h>
 
 static lv_indev_drv_t indev_drv_gamepad;
 static lv_indev_drv_t indev_drv_mouse;
