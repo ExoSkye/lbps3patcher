@@ -10,18 +10,13 @@
 
 #OFILES is what is linked into your binary
 #the object files are made automatically from the corresponding c/cpp files
-OFILES=source/main.o source/lv_port_indev.o lvgl-sdl/lvgl_drv/lv_sdl_disp.o
+OFILES=source/main.o
 
-PROJECT_DIR=$(shell pwd)
-LVGL_DIR=${PROJECT_DIR}/lvgl-sdl/lvgl
-LV_CONF_PATH=${PROJECT_DIR}/lvgl-sdl/lv_conf.h
 
 #The CFLAGS are not set by the framework makefiles. These are sound defaults.
-CFLAGS=-I$(PS3DEV)/ppu/include -I$(PS3DEV)/portlibs/ppu/include/ -I$(PS3DEV)/portlibs/ppu/include/SDL2 -Ilvgl-sdl/lvgl -Ilvgl-sdl/lvgl_drv -std=gnu99 -lsdl2 -DLV_LVGL_H_INCLUDE_SIMPLE -DLV_CONF_PATH=${LV_CONF_PATH}
+CFLAGS=-I$(PS3DEV)/ppu/include -I$(PS3DEV)/portlibs/ppu/include/ -std=gnu99 -lsdl2
 
 LDFLAGS=
-
-include lvgl-sdl/lvgl/lvgl.mk
 
 # Destination where the .pkg is built
 BUILDDIR=build
