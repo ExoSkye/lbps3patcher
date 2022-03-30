@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  PS3DEV: /usr/local/ps3dev
+  PSL1GHT: ${{ env.PS3DEV }}
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    
-    env:
-      PS3DEV: /usr/local/ps3dev
-      PSL1GHT: ${{ env.PS3DEV }}
-      PATH: $PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin
 
     steps:
     - uses: actions/checkout@v3
