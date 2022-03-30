@@ -16,7 +16,7 @@ jobs:
 
     - name: Install dependencies for PSL1GHT
       run: |
-        sudo apt-get install autoconf automake bison flex gcc libelf-dev make texinfo libncurses5-dev patch python subversion wget zlib1g-dev libtool libtool-bin python-dev bzip2 libgmp3-dev pkg-config g++ libssl-dev   
+        sudo apt-get install autoconf automake bison flex gcc libelf-dev make texinfo libncurses5-dev patch python subversion wget zlib1g-dev libtool libtool-bin python-dev bzip2 libgmp3-dev pkg-config g++ libssl-dev -y 
 
     - name: Setup PSL1GHT
       run: |
