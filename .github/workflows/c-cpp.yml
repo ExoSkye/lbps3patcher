@@ -1,0 +1,52 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PS3DEV: /usr/local/ps3dev
+  PSL1GHT: /usr/local/ps3dev
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+
+    - name: Install dependencies for PSL1GHT
+      run: |
+        sudo apt-get install autoconf automake bison flex gcc libelf-dev make texinfo libncurses5-dev patch python subversion wget zlib1g-dev libtool libtool-bin python-dev bzip2 libgmp3-dev pkg-config g++ libssl-dev -y 
+
+    - name: Download PSL1GHT
+      run: |
+        git clone https://github.com/ProtoByter/ps3toolchain
+
+    - name: Cache
+      id: cache-psl1ght
+      uses: actions/cache@v3.0.1
+      with:
+        path: ${{ env.PS3DEV }}
+        key: psl1ght-1
+
+    - name: Setup PSL1GHT
+      if: steps.cache-psl1ght.outputs.cache-hit != 'true'
+      run: |
+        cd ps3toolchain
+        sudo ./toolchain-sudo.sh
+
+    - name: make
+      run: |
+        export PATH=$PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin
+        make
+
+    - name: make pkg
+      run: |
+        export PATH=$PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin
+        make pkg
