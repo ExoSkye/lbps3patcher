@@ -1,8 +1,13 @@
-#include <stdio.h>
+#include <stdlib.h>
+#include <sys/unistd.h>
+#include "utils/utils.h"
 
 int main()
 {
-	printf("hello, ps3\n");
+    sleep(60);
+
+    bool a[100];
+    get_installed_lbp_versions(&a[0], NULL, NULL, NULL, NULL, NULL);
 	return 0;
 }	
 

@@ -10,13 +10,13 @@
 
 #OFILES is what is linked into your binary
 #the object files are made automatically from the corresponding c/cpp files
-OFILES=source/main.o
+OFILES=source/main.o source/gui/gui.c source/patcher/patcher.c source/utils/utils.o
 
 
 #The CFLAGS are not set by the framework makefiles. These are sound defaults.
 CFLAGS=-I$(PS3DEV)/ppu/include -I$(PS3DEV)/portlibs/ppu/include/ -std=gnu99 -lsdl2
 
-LDFLAGS=
+LDFLAGS=-llv2 -lsysutil -lsysmodule -lio -lrt -lsysfs
 
 # Destination where the .pkg is built
 BUILDDIR=build
