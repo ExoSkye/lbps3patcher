@@ -33,7 +33,7 @@ jobs:
       id: cache-psl1ght
       with:
         path: ${{ env.PS3DEV }}
-        key: psl1ght-4
+        key: psl1ght-5
 
     - name: Setup PSL1GHT
       if: steps.cache-psl1ght.outputs.cache-hit != 'true'

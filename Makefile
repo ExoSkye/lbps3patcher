@@ -14,9 +14,9 @@ OFILES=source/main.o source/gui/gui.o source/patcher/patcher.o source/utils/util
 
 
 #The CFLAGS are not set by the framework makefiles. These are sound defaults.
-CFLAGS=-I$(PS3DEV)/ppu/include -I$(PS3DEV)/portlibs/ppu/include/ -std=gnu99 -lsdl2
+CFLAGS=-I$(PS3DEV)/ppu/include -I$(PS3DEV)/portlibs/ppu/include/ -std=gnu99
 
-LDFLAGS=
+LDFLAGS=-lsysfs -lsdl2
 
 # Destination where the .pkg is built
 BUILDDIR=build

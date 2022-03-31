@@ -4,10 +4,8 @@
 
 int main()
 {
-    sleep(60);
-
     bool a[100];
-    get_installed_lbp_versions(&a[0], NULL, NULL, NULL, NULL, NULL);
+    get_installed_lbp_versions(a, NULL, NULL, NULL, NULL, NULL);
 	return 0;
 }	
 
