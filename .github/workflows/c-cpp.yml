@@ -38,8 +38,9 @@ jobs:
     - name: Setup PSL1GHT
       if: steps.cache-psl1ght.outputs.cache-hit != 'true'
       run: |
+        export PATH=$PATH:$PS3DEV/bin:$PS3DEV/ppu/bin:$PS3DEV/spu/bin
         cd ps3toolchain
-        sudo ./toolchain-sudo.sh
+        ./toolchain.sh
 
     - name: make
       run: |
