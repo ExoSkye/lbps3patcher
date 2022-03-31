@@ -36,6 +36,7 @@ void get_installed_lbp_versions(
     bool* lbp3_versions, bool* lbp3_installed
 )
 {
+    printf("Opening /dev_hdd0/game directory");
     s32 game_dir = -1;
     sysFsOpendir("/dev_hdd0/game/", &game_dir);
 
@@ -43,9 +44,11 @@ void get_installed_lbp_versions(
 
     u32 count = 0;
 
+    printf("Reading /dev_hdd0/game entries");
     sysFsGetDirectoryEntries(game_dir, entries, 1024, &count);
 
     for (int i = 0; i < count; i++) {
+        printf("Found %s", entries[i].entry_name.d_name);
         if (lbp1_versions != NULL) {
             for (int j = 0; j < sizeof(lbp1_ids) / sizeof(lbp1_ids[0]); j++) {
                 if (!strcmp(entries[i].entry_name.d_name, lbp1_ids[j])) {
