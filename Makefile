@@ -10,7 +10,7 @@
 
 #OFILES is what is linked into your binary
 #the object files are made automatically from the corresponding c/cpp files
-OFILES=source/main.o source/gui/gui.c source/patcher/patcher.c source/utils/utils.o
+OFILES=source/main.o source/gui/gui.o source/patcher/patcher.o source/utils/utils.o
 
 
 #The CFLAGS are not set by the framework makefiles. These are sound defaults.
@@ -41,7 +41,7 @@ ICON0=icon.png
 # ID of your application. Also the installation directory
 # (/dev_hdd0/game/$APPID/)
 # note: if APPID is of wrong format, the PS3 modifies the install directory!
-APPID = PS3PATCH0
+APPID = LBPPATCH0
 
 # Include psl1ght boilerplate makefiles
 include $(PSL1GHT)/ppu_rules
