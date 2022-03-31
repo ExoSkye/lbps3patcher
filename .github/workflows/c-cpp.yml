@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  PS3DEV: ~/ps3dev
-  PSL1GHT: ~/ps3dev
+  PS3DEV: ${{ github.workspace }}/ps3dev
+  PSL1GHT: ${{ github.workspace }}/ps3dev
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
       id: cache-psl1ght
       with:
         path: ${{ env.PS3DEV }}
-        key: psl1ght-2
+        key: psl1ght-3
 
     - name: Setup PSL1GHT
       if: steps.cache-psl1ght.outputs.cache-hit != 'true'
