@@ -28,9 +28,9 @@ jobs:
       run: |
         git clone https://github.com/ProtoByter/ps3toolchain
 
-    - name: Cache
+    - name: Cache PSL1GHT
+      uses: pat-s/always-upload-cache@v2.1.5
       id: cache-psl1ght
-      uses: actions/cache@v3.0.1
       with:
         path: ${{ env.PS3DEV }}
         key: psl1ght-1
