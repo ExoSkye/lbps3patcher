@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  PS3DEV: /usr/local/ps3dev
-  PSL1GHT: /usr/local/ps3dev
+  PS3DEV: ~/ps3dev
+  PSL1GHT: ~/ps3dev
 
 jobs:
   build:
